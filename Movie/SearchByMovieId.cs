@@ -19,8 +19,10 @@ namespace Movie
             try
 
             {
+                DotNetEnv.Env.TraversePath().Load(); //nuggetpacket att ladda ner
+                string key = Environment.GetEnvironmentVariable("API_KEY");
 
-                string uriId = $"https://api.themoviedb.org/3/movie/{id}550?api_key=df22cd8ec8f6663e3f49f5a84a1070ef";
+                string uriId = $"https://api.themoviedb.org/3/movie/{id}?api_key={}";
                 var response = await client.GetAsync(uriId);
                 response.EnsureSuccessStatusCode();
 
@@ -51,7 +53,7 @@ namespace Movie
             public string Original_language { get; set; }
             public string Original_title { get; set; }
             public string Overview { get; set; }
-            //public uri Poster_patch
+            public string Poster_patch { get; set; }
             public string Release_date { get; set; }
             public int Runtime { get; set; }
             public double Vote_avrage { get; set; }
@@ -73,7 +75,7 @@ namespace Movie
                 Console.WriteLine("Original Language: {0}", Original_language);
                 Console.WriteLine("Title: {0}", Original_title);
                 Console.WriteLine("Overview: {0}", Overview);
-                Console.WriteLine($"Posteradress");
+                Console.WriteLine($"Posteradress: https://image.tmdb.org/t/p/w500{Poster_patch}");
                 Console.WriteLine("Release date: {0}", Release_date);
                 Console.WriteLine("Runtime: {0}", Runtime);
                 Console.WriteLine("Vote Avrage: {0}", Vote_avrage);
