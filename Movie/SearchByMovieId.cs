@@ -19,10 +19,9 @@ namespace Movie
             try
 
             {
-                DotNetEnv.Env.TraversePath().Load(); //nuggetpacket att ladda ner
                 string key = Environment.GetEnvironmentVariable("API_KEY");
 
-                string uriId = $"https://api.themoviedb.org/3/movie/{id}?api_key={}";
+                string uriId = $"https://api.themoviedb.org/3/movie/{id}?api_key={key}";
                 var response = await client.GetAsync(uriId);
                 response.EnsureSuccessStatusCode();
 
