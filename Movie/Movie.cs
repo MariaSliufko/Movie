@@ -16,17 +16,9 @@ namespace Movie
 
 
 
-        public Movie(/*homepage*/ int id, string original_language, string overview, /* poster_patch*/ string release_date, int runtime, double vote_avrage)
+        public Movie()
         {
-            /*this.homepage = homepage */
-            this.Id = id;
-            this.Original_language = original_language;
-            this.Original_title = Original_title;
-            this.Overview = overview;
-            /*this.Poster.Patch = poster.patch; */
-            this.Release_date = release_date;
-            this.Runtime = runtime;
-            this.Vote_avrage = vote_avrage;
+        
        
         }
 
