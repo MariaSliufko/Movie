@@ -1,10 +1,12 @@
 ﻿using System;
+
+
 namespace Movie
 {
     public class StartMenu
     {
-        
-        public StartMenu()
+
+        public static void StartMenuChoice()
         {
             int userInput = 0;
             do
@@ -30,22 +32,27 @@ namespace Movie
             switch (userInput)
             {
                 case 1:
-                    //söka med id
+                    SearchByMovieIdP.();
                     break;
 
                 case 2:
-                    //Söka med titel
+                    //Movie.xxxxxx();
                     break;
 
                 case 3:
-                    //exit
+                    ExitProgram.EndMessage();
                     break;
             }
 
 
 
             }
+
+        internal static void StartmenuChoice()
+        {
+            throw new NotImplementedException();
         }
+    }
 
     }
 
