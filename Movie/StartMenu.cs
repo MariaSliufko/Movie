@@ -32,7 +32,7 @@ namespace Movie
             switch (userInput)
             {
                 case 1:
-                    SearchByMovieIdP.();
+                    SearchByMovieIdP.SearchByIdP().Wait();
                     break;
 
                 case 2:

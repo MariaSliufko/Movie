@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using DotNetEnv;
 
 namespace Movie
 {
@@ -10,15 +11,15 @@ namespace Movie
     public class SearchByMovieIdP
     {
         public static HttpClient client = new HttpClient();
-        public static async Task<Movie> SearchByIdP(int id)
-        { 
-
+        public static async Task<Movie> SearchByIdP()
+        {
             Console.Write("Enter a movieid: ");
-            id = int.Parse(Console.ReadLine());
+            int id = int.Parse(Console.ReadLine());
 
             try
 
             {
+                Env.TraversePath().Load();
                 string key = Environment.GetEnvironmentVariable("API_KEY");
 
                 string uriId = $"https://api.themoviedb.org/3/movie/{id}?api_key={key}";
@@ -29,7 +30,7 @@ namespace Movie
 
                 Movie thisMovie = JsonConvert.DeserializeObject<Movie>(responseContent);
 
-                return thisMovie;
+                thisMovie.ShowMovie();
 
             }
 
