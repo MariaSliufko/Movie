@@ -4,16 +4,17 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using DotNetEnv;
 
+
 namespace Movie
+
+
 {
-
-
-    public class SearchByMovieIdP
+    public class SearchByMovieTitleP
     {
         public static HttpClient client = new HttpClient();
-        public static async Task<Movie> SearchByIdP()
+        public static async Task<Movie> SearchByTitelP()
         {
-            Console.Write("Enter a movieid: ");
+            Console.Write("Enter a title: ");
             int id = int.Parse(Console.ReadLine());
 
             try
@@ -41,12 +42,9 @@ namespace Movie
             }
             return null;
 
-            }
+        }
 
-
-            
-
-    public class SearchByMovieId
+        public class SearchByMovieTitle
         {
             public string Homepage { get; set; }
             public int Id { get; set; }
@@ -57,13 +55,12 @@ namespace Movie
             public string Release_date { get; set; }
             public int Runtime { get; set; }
             public double Vote_avrage { get; set; }
-            public string Key_phrase { get; set; }
-            public double Popularity { get; set; }
 
 
 
 
-            public SearchByMovieId()
+            public SearchByMovieTitle()
+
             {
             }
 
@@ -75,16 +72,15 @@ namespace Movie
                 Console.WriteLine("Original Language: {0}", Original_language);
                 Console.WriteLine("Title: {0}", Original_title);
                 Console.WriteLine("Overview: {0}", Overview);
-                Console.WriteLine($"Posteradress: https://image.tmdb.org/t/p/w500{Poster_patch}");
+                Console.WriteLine($"Posteradress");
                 Console.WriteLine("Release date: {0}", Release_date);
                 Console.WriteLine("Runtime: {0}", Runtime);
                 Console.WriteLine("Vote Avrage: {0}", Vote_avrage);
-                Console.WriteLine("Key Phrase: {0}", Key_phrase);
-                Console.WriteLine("Popularity: {0}", Popularity);
+
 
 
             }
-            
+
         }
     }
 }
