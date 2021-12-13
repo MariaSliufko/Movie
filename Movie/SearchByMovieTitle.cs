@@ -15,7 +15,7 @@ namespace Movie
         public static async Task<Movie> SearchByTitelP()
         {
             Console.Write("Enter a title: ");
-            int id = int.Parse(Console.ReadLine());
+            string title = Console.ReadLine();
 
             try
 
@@ -23,8 +23,8 @@ namespace Movie
                 Env.TraversePath().Load();
                 string key = Environment.GetEnvironmentVariable("API_KEY");
 
-                string uriId = $"https://api.themoviedb.org/3/movie/{id}?api_key={key}";
-                var response = await client.GetAsync(uriId);
+                string uriTitle = $"https://api.themoviedb.org/3/search/movie?api_key={key}&query=title";
+                var response = await client.GetAsync(uriTitle);
                 response.EnsureSuccessStatusCode();
 
                 var responseContent = await response.Content.ReadAsStringAsync();
