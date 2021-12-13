@@ -33,10 +33,12 @@ namespace Movie
             {
                 case 1:
                     SearchByMovieIdP.SearchByIdP().Wait();
+                    StartMenu.StartMenuChoice();
                     break;
 
                 case 2:
                     SearchByMovieTitleP.SearchByTitelP().Wait();
+                    StartMenu.StartMenuChoice();
                     break;
 
                 case 3:
