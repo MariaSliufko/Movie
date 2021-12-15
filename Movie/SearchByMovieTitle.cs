@@ -47,11 +47,11 @@ namespace Movie
                 Console.WriteLine("Original Language: {0}", title.Results[id].Original_language);
                 Console.WriteLine("Title: {0}", title.Results[id].Original_title);
                 Console.WriteLine("Overview: {0}", title.Results[id].Overview);
-                Console.WriteLine("Posteradress: ", pic + title.Results[id].Poster_path);
+                Console.WriteLine("Posteradress: {0}", pic + title.Results[id].Poster_path);
                 Console.WriteLine("Release date: {0}", title.Results[id].Release_date);
                 Console.WriteLine("Runtime: {0}", title.Results[id].Runtime);
-                Console.WriteLine("Vote Avrage: {0}", title.Results[id].Vote_avrage);
-                //thisMovie.ShowMovie();
+                Console.WriteLine("Vote Average: {0}", title.Results[id].Vote_average);
+               
 
                 return title;
 

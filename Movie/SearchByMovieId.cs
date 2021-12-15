@@ -37,12 +37,12 @@ namespace Movie
                 Console.WriteLine("Original Language: {0}", movie.Original_language);
                 Console.WriteLine("Title: {0}", movie.Original_title);
                 Console.WriteLine("Overview: {0}", movie.Overview);
-                Console.WriteLine("Posteradress: ", pic + movie.Poster_path);
+                Console.WriteLine("Posteradress: {0}", pic + movie.Poster_path);
                 Console.WriteLine("Release date: {0}", movie.Release_date);
                 Console.WriteLine("Runtime: {0}", movie.Runtime);
-                Console.WriteLine("Vote Avrage: {0}", movie.Vote_avrage);
+                Console.WriteLine("Vote Average: {0}", movie.Vote_average);
 
-                //thisMovie.ShowMovie();
+                
 
                 return movie;
 
@@ -58,29 +58,7 @@ namespace Movie
         }
 
 
-        /*     
-
-     public class SearchByMovieId
-         {
-             public string Homepage { get; set; }
-             public int Id { get; set; }
-             public string Original_language { get; set; }
-             public string Original_title { get; set; }
-             public string Overview { get; set; }
-             public string Poster_patch { get; set; }
-             public string Release_date { get; set; }
-             public int Runtime { get; set; }
-             public double Vote_avrage { get; set; }
-             public string Key_phrase { get; set; }
-             public double Popularity { get; set; }
-
-
-
-
-             public SearchByMovieId()
-             {
-             }
-        */
+  
 
 
 

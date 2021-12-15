@@ -11,7 +11,7 @@ namespace Movie
         public string Poster_path { get; set; }
         public string Release_date { get; set; }
         public int Runtime { get; set; }
-        public double Vote_avrage { get; set; }
+        public double Vote_average { get; set; }
         
 
 
