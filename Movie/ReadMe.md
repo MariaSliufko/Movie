@@ -1,7 +1,7 @@
 ﻿## Movie Search App
 
 A school project!
-I created an app for moviesearch by title and by id. When you search you by title or id you get information about the choosen movie.
+I created an app for movie search by title and by id. When you search by title or id you get information about the choosen movie.
 
 
 [The Movie Data Base](https://www.themoviedb.org)
