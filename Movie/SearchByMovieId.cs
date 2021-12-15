@@ -22,7 +22,7 @@ namespace Movie
             {
                 Env.TraversePath().Load();
                 string key = Environment.GetEnvironmentVariable("API_KEY");
-                string pic = Environment.GetEnvironmentVariable($"https://image.tmdb.org/t/p/w500/");
+                string pic = "https://image.tmdb.org/t/p/w500/";
 
                 string uriId = $"https://api.themoviedb.org/3/movie/{id}?api_key={key}";
                 var response = await client.GetAsync(uriId);
