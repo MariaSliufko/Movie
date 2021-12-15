@@ -24,7 +24,7 @@ namespace Movie
             {
                 Env.TraversePath().Load();
                 string key = Environment.GetEnvironmentVariable("API_KEY");
-                string pic = Environment.GetEnvironmentVariable($"https://image.tmdb.org/t/p/w500/");
+                string pic = $"https://image.tmdb.org/t/p/w500/";
 
                 string uriId = $"https://api.themoviedb.org/3/search/movie?api_key={key}&query={titleP}";
                 var response = await client.GetAsync(uriId);
