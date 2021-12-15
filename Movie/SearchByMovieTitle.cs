@@ -9,29 +9,51 @@ namespace Movie
 
 
 {
-    public class SearchByMovieTitleP
+    public class SearchByMovieTitle
     {
         public static HttpClient client = new HttpClient();
-        public static async Task<Movie> SearchByTitelP()
+
+        public static async Task<Title> SearchByTitle()  
+
         {
             Console.Write("Enter a title: ");
-            string title = Console.ReadLine();
+            string titleP = Console.ReadLine();
 
             try
 
             {
                 Env.TraversePath().Load();
                 string key = Environment.GetEnvironmentVariable("API_KEY");
+                string pic = Environment.GetEnvironmentVariable($"https://image.tmdb.org/t/p/w500/");
 
-                string uriTitle = $"https://api.themoviedb.org/3/search/movie?api_key={key}&query=title";
-                var response = await client.GetAsync(uriTitle);
+                string uriId = $"https://api.themoviedb.org/3/search/movie?api_key={key}&query={titleP}";
+                var response = await client.GetAsync(uriId);
                 response.EnsureSuccessStatusCode();
 
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                Movie thisMovie = JsonConvert.DeserializeObject<Movie>(responseContent);
+                Title title = JsonConvert.DeserializeObject<Title>(responseContent);
 
-                thisMovie.ShowMovie();
+                foreach (var item in title.Results)
+                {
+                    Console.WriteLine("{0}:{1}", title.Results.IndexOf(item), item.Original_title);
+                }
+                Console.WriteLine("Select an id: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+
+
+                Console.WriteLine("Homepage: {0}", title.Results[id].Homepage);
+                Console.WriteLine("Id: {0}", title.Results[id].Id);
+                Console.WriteLine("Original Language: {0}", title.Results[id].Original_language);
+                Console.WriteLine("Title: {0}", title.Results[id].Original_title);
+                Console.WriteLine("Overview: {0}", title.Results[id].Overview);
+                Console.WriteLine("Posteradress: ", pic + title.Results[id].Poster_path);
+                Console.WriteLine("Release date: {0}", title.Results[id].Release_date);
+                Console.WriteLine("Runtime: {0}", title.Results[id].Runtime);
+                Console.WriteLine("Vote Avrage: {0}", title.Results[id].Vote_avrage);
+                //thisMovie.ShowMovie();
+
+                return title;
 
             }
 
@@ -39,48 +61,14 @@ namespace Movie
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                return null;
             }
-            return null;
+          
 
-        }
+        
+       
 
-        public class SearchByMovieTitle
-        {
-            public string Homepage { get; set; }
-            public int Id { get; set; }
-            public string Original_language { get; set; }
-            public string Original_title { get; set; }
-            public string Overview { get; set; }
-            public string Poster_patch { get; set; }
-            public string Release_date { get; set; }
-            public int Runtime { get; set; }
-            public double Vote_avrage { get; set; }
-
-
-
-
-            public SearchByMovieTitle()
-
-            {
-            }
-
-
-            public void ShowMovie()
-            {
-                Console.WriteLine("Homepage: {0}", Homepage);
-                Console.WriteLine("Id: {0}", Id);
-                Console.WriteLine("Original Language: {0}", Original_language);
-                Console.WriteLine("Title: {0}", Original_title);
-                Console.WriteLine("Overview: {0}", Overview);
-                Console.WriteLine($"Posteradress");
-                Console.WriteLine("Release date: {0}", Release_date);
-                Console.WriteLine("Runtime: {0}", Runtime);
-                Console.WriteLine("Vote Avrage: {0}", Vote_avrage);
-
-
-
-            }
-
+         
         }
     }
 }

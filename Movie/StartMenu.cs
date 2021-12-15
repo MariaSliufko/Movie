@@ -37,7 +37,7 @@ namespace Movie
                     break;
 
                 case 2:
-                    SearchByMovieTitleP.SearchByTitelP().Wait();
+                    SearchByMovieTitle.SearchByTitle().Wait();
                     StartMenu.StartMenuChoice();
                     break;
 
